@@ -4,7 +4,9 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/', 'InvoiceController@index');
+Route::resource('invoice', 'InvoiceController');
+
+
 
 Auth::routes();
 

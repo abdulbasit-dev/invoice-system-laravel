@@ -23,7 +23,7 @@ class InvoiceController extends Controller
      */
     public function create()
     {
-        //
+        return view("fronend.create");
     }
 
     /**
@@ -34,7 +34,6 @@ class InvoiceController extends Controller
      */
     public function store(Request $request)
     {
-        //
     }
 
     /**
@@ -45,7 +44,7 @@ class InvoiceController extends Controller
      */
     public function show($id)
     {
-        //
+        return view("fronend.show");
     }
 
     /**
@@ -56,7 +55,7 @@ class InvoiceController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view("fronend.edit");
     }
 
     /**

@@ -6,10 +6,10 @@
   <div class="col-12">
     <div class="card">
       <div class="card-header">
-        Index
+        Edit
       </div>
       <div class="card-body">
-        index page
+        Edit page
       </div>
     </div>
   </div>
