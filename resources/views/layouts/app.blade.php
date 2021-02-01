@@ -43,11 +43,13 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item px-2">
-                            <a class=" btn btn-primary " href="">Ar</a>
+                            <a class=" btn btn-primary "
+                                href="{{ route("change-langauge" , "ar") }}">Ar</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class=" btn btn-secondary" href="">En</a>
+                            <a class=" btn btn-secondary"
+                                href="{{ route("change-langauge","en") }}">En</a>
                         </li>
 
                         {{-- <!-- Authentication Links -->
