@@ -26,7 +26,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    Invoice System
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -42,7 +42,15 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
+                        <li class="nav-item px-2">
+                            <a class=" btn btn-primary " href="">Ar</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class=" btn btn-secondary" href="">En</a>
+                        </li>
+
+                        {{-- <!-- Authentication Links -->
                         @guest
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -75,7 +83,7 @@
                                 </form>
                             </div>
                         </li>
-                        @endguest
+                        @endguest --}}
                     </ul>
                 </div>
             </div>
