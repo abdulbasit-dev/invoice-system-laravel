@@ -8,17 +8,21 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ (__('Frontend/frontend.invoice_system'))}}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link href="{{ asset("frontend/css/fontawesome/all.min.css") }}" rel="stylesheet">
+
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @if (config("app.locale") =="ar" || config("app.locale")=="kr")
+    <link href="{{ asset('frontend/css/bootstrap-rtl.css') }}" rel="stylesheet">
+    @endif
 </head>
 
 <body>
@@ -26,7 +30,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    Invoice System
+                    {{ __("Frontend/frontend.invoice_system") }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -50,6 +54,10 @@
                         <li class="nav-item">
                             <a class=" btn btn-secondary"
                                 href="{{ route("change-langauge","en") }}">En</a>
+                        </li>
+                        <li class="nav-item px-2">
+                            <a class=" btn btn-success text-white "
+                                href="{{ route("change-langauge","kr") }}">Kr</a>
                         </li>
 
                         {{-- <!-- Authentication Links -->
@@ -91,12 +99,18 @@
             </div>
         </nav>
 
+
         <main class="py-4">
             <div class="container">
                 @yield('content')
             </div>
         </main>
     </div>
+
+
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset("frontend/js/fontawesome/all.min.js") }}"></script>
 </body>
 
 </html>
