@@ -87,7 +87,7 @@
                                     <td>Unit</td>
                                     <td>Quntity</td>
                                     <td>Unit Price</td>
-                                    <td>Subtotal</td>
+                                    <td>Sub Total</td>
                                 </tr>
                             </thead>
 
@@ -113,8 +113,8 @@
                                         @enderror
                                     </td>
                                     <td>
-                                        <input type="text" name="quaintity[]" id="quaintity"
-                                            class="quaintity form-control">
+                                        <input type="text" name="quantity[]" id="quantity"
+                                            class="quantity form-control">
                                         @error('quantity')
                                         <span class="help-block text-danger"> {{ $message }}</span>
                                         @enderror
@@ -205,7 +205,32 @@
 
 <script>
     $(document).ready(function(){
-        
+        $("#invoice_details").on("blur keyup", ".quantity" , function(){
+            // let $row = ($this).closest("tr");
+            let quantity = $(".quantity").val() | 0
+            let unit_price = $(".unit_price").val() | 0
+            $(".row_sub_total").val((quantity * unit_price).toFixed(2))
+            $("#sub_total").val((quantity * unit_price).toFixed(2))
+        })
+
+        $("#invoice_details").on("blur keyup", ".unit_price" , function(){
+            // let $row = ($this).closest("tr");
+            let quantity = $(".quantity").val() | 0
+            let unit_price = $(".unit_price").val() | 0
+            $(".row_sub_total").val((quantity * unit_price).toFixed(2))
+            $("#sub_total").val((quantity * unit_price).toFixed(2))
+        })
+
+        let sub_total = (selector)=>{
+            let sum=0;
+            $(selector).each(function(){
+            let selectorVal = ($this).val() !=''? this.val() :0;
+            sum+=parseFloat(selectorVal);
+            })
+
+            return sum.toFixed(2);
+        }
+
     })
 </script>
 @endsection
