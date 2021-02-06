@@ -211,6 +211,9 @@
             let unit_price = $(".unit_price").val() | 0
             $(".row_sub_total").val((quantity * unit_price).toFixed(2))
             $("#sub_total").val((quantity * unit_price).toFixed(2))
+
+            $("#vat_value").val(calculate_val())
+            $("#tottal_due").val(sum_due_total())
         })
 
         $("#invoice_details").on("blur keyup", ".unit_price" , function(){
@@ -219,6 +222,8 @@
             let unit_price = $(".unit_price").val() | 0
             $(".row_sub_total").val((quantity * unit_price).toFixed(2))
             $("#sub_total").val((quantity * unit_price).toFixed(2))
+            $("#vat_value").val(calculate_val())
+            $("#total_due").val(sum_due_total())
         })
 
         let sub_total = (selector)=>{
@@ -227,6 +232,40 @@
             let selectorVal = ($this).val() !=''? this.val() :0;
             sum+=parseFloat(selectorVal);
             })
+
+            return sum.toFixed(2);
+        }
+
+        const calculate_val = ()=>{
+            let sub_totalVal = $(".sub_total").val() || 0
+            let discount_Type = $(".discount_type").val()
+            let discount_value = $(".discount_value").val() || 0
+
+            let discountVal = discount_value != 0 ?
+             discount_Type == "percentage" ? sub_totalVal * (discount_value /100) : discount_value
+             : 0;
+
+             let vatValue = (sub_totalVal - discountVal ) * 0.05;
+             return vatValue.toFixed(2);
+        }
+
+        const sum_due_total = ()=>{
+            let sum = 0;
+            let sub_totalVal = $(".sub_total").val() || 0
+            let discount_Type = $(".discount_type").val()
+            let discount_value = $(".discount_value").val() || 0
+
+            let discountVal = discount_value != 0 ?
+             discount_Type == "percentage" ? sub_totalVal * (discount_value /100) : discount_value
+             : 0;
+
+             let vatVal = parseFloat($(".vat_value").val()) || 0 ;
+             let shippingVal = parseFloat($(".shipping").val()) || 0 ;
+
+             sum+= sub_totalVal;
+             sum-= discountVal;
+             sum+=  vatVal;
+             sum+= shippingVal;
 
             return sum.toFixed(2);
         }
