@@ -1,5 +1,6 @@
 {
   "editor.tabSize": 2,
   "workbench.tree.indent": 2,
-  "bladeFormatter.format.indentSize": 2
+  "bladeFormatter.format.indentSize": 2,
+  "editor.wordWrapColumn": 100
 }
