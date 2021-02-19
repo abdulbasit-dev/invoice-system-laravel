@@ -117,6 +117,7 @@
 
     <main class="py-4">
       <div class="container">
+        @include("partial.flash")
         @yield('content')
       </div>
     </main>
@@ -126,6 +127,14 @@
   <!-- Scripts -->
   <script src="{{ asset('js/app.js') }}"></script>
   <script src="{{ asset('frontend/js/fontawesome/all.min.js') }}"></script>
+  <script>
+    $(function() {
+      $('#session-alert').fadeTo(1500, 500).slideUp(500, function() {
+        $('#session-alert').slideUp(500);
+      })
+    })
+
+  </script>
 
   @yield('script')
 </body>

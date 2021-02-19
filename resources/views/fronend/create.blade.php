@@ -28,85 +28,66 @@
         </div>
         <div class="card-body">
           <form action="{{ route('invoice.store') }}"
-            method="POST">
-            @csrf("")
+            method="post"
+            class="form">
+            @csrf
             <div class="row">
-              <div class="col-md-4">
+              <div class="col-4">
                 <div class="form-group">
-                  <label for="customer_name">Customer Name</label>
+                  <label for="customer_name">{{ __('Frontend/frontend.customer_name') }}</label>
                   <input type="text"
                     name="customer_name"
-                    id="customer_name"
                     class="form-control">
-                  @error('customer_name')
-                    <span class="help-block text-danger">{{ $message }}</span>
-                  @enderror
+                  @error('customer_name')<span class="help-block text-danger">{{ $message }}</span>@enderror
                 </div>
               </div>
-              <div class="col-md-4">
+              <div class="col-4">
                 <div class="form-group">
-                  <label for="customer_email">Customer Email</label>
-                  <input type="email"
+                  <label for="customer_email">{{ __('Frontend/frontend.customer_email') }}</label>
+                  <input type="text"
                     name="customer_email"
-                    id="customer_email"
                     class="form-control">
-                  @error('customer_email')
-                    <span class="help-block text-danger">{{ $message }}</span>
-                  @enderror
+                  @error('customer_email')<span class="help-block text-danger">{{ $message }}</span>@enderror
                 </div>
               </div>
-              <div class="col-md-4">
+              <div class="col-4">
                 <div class="form-group">
-                  <label for="customer_mobile">Customer Mobile</label>
-                  <input type="num"
+                  <label for="customer_mobile">{{ __('Frontend/frontend.customer_mobile') }}</label>
+                  <input type="text"
                     name="customer_mobile"
-                    id="customer_mobile"
                     class="form-control">
-                  @error('customer_mobile')
-                    <span class="help-block text-danger">{{ $message }}</span>
-                  @enderror
+                  @error('customer_mobile')<span class="help-block text-danger">{{ $message }}</span>@enderror
                 </div>
               </div>
             </div>
-
-            <div class="row mb-4">
-              <div class="col-md-4">
+            <div class="row mb-3">
+              <div class="col-4">
                 <div class="form-group">
-                  <label for="company_name">Company Name</label>
+                  <label for="company_name">{{ __('Frontend/frontend.company_name') }}</label>
                   <input type="text"
                     name="company_name"
-                    id="company_name"
                     class="form-control">
-                  @error('company_name')
-                    <span class="help-block text-danger">{{ $message }}</span>
-                  @enderror
+                  @error('company_name')<span class="help-block text-danger">{{ $message }}</span>@enderror
                 </div>
               </div>
-              <div class="col-md-4">
+              <div class="col-4">
                 <div class="form-group">
-                  <label for="invoice_date">Invoice Number</label>
-                  <input type="email"
-                    name="invoice_date"
-                    id="invoice_date"
+                  <label for="invoice_number">{{ __('Frontend/frontend.invoice_number') }}</label>
+                  <input type="text"
+                    name="invoice_number"
                     class="form-control">
-                  @error('invoice_date')
-                    <span class="help-block text-danger">{{ $message }}</span>
-                  @enderror
+                  @error('invoice_number')<span class="help-block text-danger">{{ $message }}</span>@enderror
                 </div>
               </div>
-              <div class="col-md-4">
+              <div class="col-4">
                 <div class="form-group">
-                  <label for="invoice_date">Invoice Date</label>
-                  <input type="num"
+                  <label for="invoice_date">{{ __('Frontend/frontend.invoice_date') }}</label>
+                  <input type="text"
                     name="invoice_date"
-                    id="invoice_date"
                     class="form-control pickadate">
-                  @error('customer_mobile')
-                    <span class="help-block text-danger">{{ $message }}</span>
-                  @enderror
+                  @error('invoice_date')<span class="help-block text-danger">{{ $message }}</span>@enderror
                 </div>
               </div>
-
             </div>
 
             <div class="table-responsive">
@@ -114,69 +95,62 @@
                 id="invoice_details">
                 <thead>
                   <tr>
-                    <td></td>
-                    <td>Product Name</td>
-                    <td>Unit</td>
-                    <td>Quntity</td>
-                    <td>Unit Price</td>
-                    <td>Sub Total</td>
+                    <th></th>
+                    <th>{{ __('Frontend/frontend.product_name') }}</th>
+                    <th>{{ __('Frontend/frontend.unit') }}</th>
+                    <th>{{ __('Frontend/frontend.quantity') }}</th>
+                    <th>{{ __('Frontend/frontend.unit_price') }}</th>
+                    <th>{{ __('Frontend/frontend.product_subtotal') }}</th>
                   </tr>
                 </thead>
-
                 <tbody>
                   <tr class="cloning_row"
                     id="0">
-
                     <td>#</td>
                     <td>
                       <input type="text"
-                        name="product_name[]"
+                        name="product_name[0]"
                         id="product_name"
                         class="product_name form-control">
-                      @error('product_name')
-                        <span class="help-block text-danger"> {{ $message }}</span>
-                      @enderror
+                      @error('product_name')<span class="help-block text-danger">{{ $message }}</span>@enderror
                     </td>
                     <td>
-                      <select name="unit[]"
+                      <select name="unit[0]"
                         id="unit"
                         class="unit form-control">
-                        <option value=""></option>
-                        <option value="piece">Piece</option>
-                        <option value="g">Gram</option>
-                        <option value="kg">Kilo Gram</option>
+                        <option></option>
+                        <option value="piece">{{ __('Frontend/frontend.piece') }}</option>
+                        <option value="g">{{ __('Frontend/frontend.gram') }}</option>
+                        <option value="kg">{{ __('Frontend/frontend.kilo_gram') }}</option>
                       </select>
-                      @error('unit')
-                        <span class="help-block text-danger"> {{ $message }}</span>
-                      @enderror
+                      @error('unit')<span class="help-block text-danger">{{ $message }}</span>@enderror
                     </td>
                     <td>
-                      <input type="text"
-                        name="quantity[]"
+                      <input type="number"
+                        name="quantity[0]"
+                        step="0.01"
                         id="quantity"
                         class="quantity form-control">
-                      @error('quantity')
-                        <span class="help-block text-danger"> {{ $message }}</span>
-                      @enderror
+                      @error('quantity')<span class="help-block text-danger">{{ $message }}</span>@enderror
                     </td>
                     <td>
-                      <input type="text"
-                        name="unit_price[]"
+                      <input type="number"
+                        name="unit_price[0]"
+                        step="0.01"
                         id="unit_price"
                         class="unit_price form-control">
+                      @error('unit_price')<span class="help-block text-danger">{{ $message }}</span>@enderror
                     </td>
                     <td>
-                      <input type="text"
-                        name="row_sub_total[]"
+                      <input type="number"
+                        step="0.01"
+                        name="row_sub_total[0]"
                         id="row_sub_total"
                         class="row_sub_total form-control"
-                        readonly>
-                      @error('row_sub_total')
-                        <span class="help-block text-danger"> {{ $message }}</span>
-                      @enderror
+                        readonly="readonly">
+                      @error('row_sub_total')<span class="help-block text-danger">{{ $message }}</span>@enderror
                     </td>
                   </tr>
-
                 </tbody>
 
                 <tfoot>
@@ -196,7 +170,6 @@
                         class="sub_total form-control"
                         readonly="readonly"></td>
                   </tr>
-
                   <tr>
                     <td colspan="3"></td>
                     <td colspan="2">{{ __('Frontend/frontend.discount') }}</td>
@@ -205,11 +178,8 @@
                         <select name="discount_type"
                           id="discount_type"
                           class="discount_type custom-select">
-                          <option value="fixed">
-                            {{ __('Frontend/frontend.sr') }}</option>
-                          <option value="percentage">
-                            {{ __('Frontend/frontend.percentage') }}
-                          </option>
+                          <option value="fixed">{{ __('Frontend/frontend.sr') }}</option>
+                          <option value="percentage">{{ __('Frontend/frontend.percentage') }}</option>
                         </select>
                         <div class="input-group-append">
                           <input type="number"
@@ -255,6 +225,11 @@
               </table>
             </div>
 
+            <div class="text-right pt-3">
+              <button type="submit"
+                name="save"
+                class="btn btn-primary">{{ __('Frontend/frontend.save') }}</button>
+            </div>
           </form>
         </div>
       </div>
@@ -266,8 +241,11 @@
 
   <script src="{{ asset('frontend/js/pickadate/picker.js') }}"></script>
   <script src="{{ asset('frontend/js/pickadate/picker.date.js') }}"></script>
+  <script src="{{ asset('frontend/js/form_validation/jquery.form.js') }}"></script>
+  <script src="{{ asset('frontend/js/form_validation/jquery.validate.min.js') }}"></script>
   @if (config('app.locale') == 'ar' || config('app.locale') == 'kr')
     <script src="{{ asset('frontend/js/pickadate/ar.js') }}"></script>
+    <script src="{{ asset('frontend/js/form_validation/messages_ar.js') }}"></script>
   @endif
 
   <script>
@@ -391,6 +369,66 @@
         clear: 'Clear',
         close: 'Ok',
         closeOnSelect: true
+      });
+
+      $('form').on('submit', function(e) {
+        $('input.product_name').each(function() {
+          $(this).rules("add", {
+            required: true
+          });
+        });
+        $('select.unit').each(function() {
+          $(this).rules("add", {
+            required: true
+          });
+        });
+        $('input.quantity').each(function() {
+          $(this).rules("add", {
+            required: true
+          });
+        });
+        $('input.unit_price').each(function() {
+          $(this).rules("add", {
+            required: true
+          });
+        });
+        $('input.row_sub_total').each(function() {
+          $(this).rules("add", {
+            required: true
+          });
+        });
+        e.preventDefault();
+      });
+
+      $('form').validate({
+        rules: {
+          'customer_name': {
+            required: true
+          },
+          'customer_email': {
+            required: true,
+            email: true
+          },
+          'customer_mobile': {
+            required: true,
+            digits: true,
+            minlength: 10,
+            maxlength: 14
+          },
+          'company_name': {
+            required: true
+          },
+          'invoice_number': {
+            required: true,
+            digits: true
+          },
+          'invoice_date': {
+            required: true
+          },
+        },
+        submitHandler: function(form) {
+          form.submit();
+        }
       });
 
     })
