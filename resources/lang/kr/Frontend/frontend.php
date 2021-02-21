@@ -5,7 +5,7 @@ return [
   "invoice_system" => "سیستەمی بەڕێوەبردن",
 
   'invoices'                  => 'فاتورەکان',
-  'invoice'                   => 'فاتورة #:invoice_number',
+  'invoice'                   => 'فاتورەی ژمارە #:invoice_number',
   'back_to_invoice'           => 'گەڕانەوە بۆ فاتورەکان',
   'create_invoice'            => 'إنشاء فاتورة',
   'customer_name'             => 'ناوی كڕیار',
