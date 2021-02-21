@@ -7,34 +7,21 @@ use Illuminate\Http\Request;
 
 class InvoiceController extends Controller
 {
-  /**
-   * Display a listing of the resource.
-   *
-   * @return \Illuminate\Http\Response
-   */
+
   public function index()
   {
     $invoices = Invoice::orderBy("id", 'desc')->paginate(8);
 
-    return view("fronend.index", ["invoices" => $invoices]);
+    return view("invoice.index", ["invoices" => $invoices]);
   }
 
-  /**
-   * Show the form for creating a new resource.
-   *
-   * @return \Illuminate\Http\Response
-   */
+
   public function create()
   {
-    return view("fronend.create");
+    return view("invoice.create");
   }
 
-  /**
-   * Store a newly created resource in storage.
-   *
-   * @param  \Illuminate\Http\Request  $request
-   * @return \Illuminate\Http\Response
-   */
+
   public function store(Request $request)
   {
     $data['customer_name'] = $request->customer_name;
@@ -76,35 +63,18 @@ class InvoiceController extends Controller
     }
   }
 
-  /**
-   * Display the specified resource.
-   *
-   * @param  int  $id
-   * @return \Illuminate\Http\Response
-   */
+
   public function show(Invoice $invoice)
   {
-    return view("fronend.show", ["invoice" => $invoice]);
+    return view("invoice.show", ["invoice" => $invoice]);
   }
 
-  /**
-   * Show the form for editing the specified resource.
-   *
-   * @param  int  $id
-   * @return \Illuminate\Http\Response
-   */
+
   public function edit(Invoice $invoice)
   {
-    return view("fronend.edit", compact('invoice'));
+    return view("invoice.edit", compact('invoice'));
   }
 
-  /**
-   * Update the specified resource in storage.
-   *
-   * @param  \Illuminate\Http\Request  $request
-   * @param  int  $id
-   * @return \Illuminate\Http\Response
-   */
   public function update(Request $request, $id)
   {
 
@@ -151,12 +121,6 @@ class InvoiceController extends Controller
     }
   }
 
-  /**
-   * Remove the specified resource from storage.
-   *
-   * @param  int  $id
-   * @return \Illuminate\Http\Response
-   */
   public function destroy(Invoice $invoice)
   {
     if ($invoice) {
@@ -166,5 +130,10 @@ class InvoiceController extends Controller
         "alert-type" => "warning"
       ]);
     }
+  }
+
+  public function print(Invoice $invoice)
+  {
+    return view("invoice.print", compact('invoice'));
   }
 }

@@ -55,8 +55,8 @@ class InvoicesTableSeeder extends Seeder
       $data['invoice_number']    = $this->generateNumbers(8);
       $data['invoice_date']       = Carbon::now()->subDays(rand(1, 20));
       $data['sub_total']          = '5840';
-      $data['discount_type']      = 'fixed';
-      $data['discount_value']     = '0';
+      $data['discount_type']      = '%';
+      $data['discount_value']     = '12';
       $data['vat_value']          = '292';
       $data['shipping']           = '100';
       $data['total_due']          = '6232';
