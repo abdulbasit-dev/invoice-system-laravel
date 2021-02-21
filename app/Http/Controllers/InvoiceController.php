@@ -95,7 +95,7 @@ class InvoiceController extends Controller
    */
   public function edit(Invoice $invoice)
   {
-    return view("fronend.edit");
+    return view("fronend.edit", compact('invoice'));
   }
 
   /**
