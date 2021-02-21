@@ -118,7 +118,12 @@ class InvoiceController extends Controller
    */
   public function destroy(Invoice $invoice)
   {
-    $invoice->delete();
-    return redirect()->route("invoice.index");
+    if ($invoice) {
+      $invoice->delete();
+      return redirect()->route("invoice.index")->with([
+        "message" => __('Frontend/frontend.invoice_delete'),
+        "alert-type" => "warning"
+      ]);
+    }
   }
 }

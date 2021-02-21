@@ -16,7 +16,7 @@ class InvoicesTableSeeder extends Seeder
   {
     $faker = Factory::create("ar_SA");
 
-    for ($i = 0; $i < 15; $i++) {
+    for ($i = 0; $i < 500; $i++) {
       $items = [
         [
           'product_name' => 'طاولة كمبيوتر كبيرة',

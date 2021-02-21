@@ -1,9 +1,9 @@
 @if (session('message'))
 
-  <div class="alert alert-success {{ session('alert-type') }} alert-dismissible"
+  <div class="alert alert-{{ session('alert-type') }} alert-dismissible"
     role="alert"
     id="session-alert">
-    {{ session('message') }} yes
+    {{ session('message') }}
     <button type="button"
       class="close"
       data-dismiss="alert"
