@@ -11,6 +11,7 @@ Route::get('/', function () {
 Route::get('/change-langauge/{lang}', "LanguageController@changeLanguage")->name("change-langauge");
 
 Route::get("invoice/print/{invoice}", "InvoiceController@print")->name("invoice.print");
+Route::get("invoice/pdf/{invoice}", "InvoiceController@pdf")->name("invoice.pdf");
 Route::resource('invoice', 'InvoiceController');
 
 

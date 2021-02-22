@@ -44,7 +44,7 @@ return [
   'print_date'                => 'Print date',
   'invoice_title'             => 'Invoice',
   'seller'                    => 'Seller',
-  'seller_name'               => 'Sami Mansour Youtube Channel',
+  'seller_name'               => 'Abdulbasit ',
   'seller_phone'              => '9200000000',
   'seller_vat'                => '123456789',
   'seller_address'            => 'Jeddah, KSA',

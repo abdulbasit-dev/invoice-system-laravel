@@ -94,7 +94,7 @@
               <a href="{{ route('invoice.print', $invoice) }}"
                 class="btn btn-primary  ml-auto"><i class="fa fa-print"></i>
                 {{ __('Frontend/frontend.print') }}</a>
-              <a href="#"
+              <a href="{{ route('invoice.pdf', $invoice) }}"
                 class="btn btn-secondary  ml-auto"><i class="fa fa-file-pdf"></i>
                 {{ __('Frontend/frontend.export_pdf') }}</a>
               <a href="#"
