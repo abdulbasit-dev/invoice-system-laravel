@@ -175,13 +175,18 @@ class InvoiceController extends Controller
 
 
     $pdf = PDF::loadView('invoice.pdf', $data);
-    return $pdf->stream($invoice->invoice_number . '.pdf');
 
-    // // if (Route::currentRouteName() == 'invoice.pdf') {
-    // //   return $pdf->stream($invoice->invoice_number . '.pdf');
-    // // } else {
-    // //   $pdf->save(public_path('assets/invoices/') . $invoice->invoice_number . '.pdf');
-    // //   return $invoice->invoice_number . '.pdf';
-    // // }
+    if (Route::currentRouteName() == 'invoice.pdf') {
+      return $pdf->stream($invoice->invoice_number . '.pdf');
+    } else {
+      $pdf->save(public_path('assets/invoices') . $invoice->invoice_number);
+      return $invoice->invoice_number . '.pdf';
+    }
   }
+
+
+  // public function send_to_email(Invoice $invoice)
+  // {
+  //   $this->pdf($invoice);
+  // }
 }

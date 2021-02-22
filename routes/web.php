@@ -12,6 +12,7 @@ Route::get('/change-langauge/{lang}', "LanguageController@changeLanguage")->name
 
 Route::get("invoice/print/{invoice}", "InvoiceController@print")->name("invoice.print");
 Route::get("invoice/pdf/{invoice}", "InvoiceController@pdf")->name("invoice.pdf");
+// Route::get("invoice/send_to_email/{invoice}", "InvoiceController@send_to_email")->name("invoice.send_to_email");
 Route::resource('invoice', 'InvoiceController');
 
 

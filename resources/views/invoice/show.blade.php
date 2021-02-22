@@ -97,9 +97,9 @@
               <a href="{{ route('invoice.pdf', $invoice) }}"
                 class="btn btn-secondary  ml-auto"><i class="fa fa-file-pdf"></i>
                 {{ __('Frontend/frontend.export_pdf') }}</a>
-              <a href="#"
+              {{-- <a href="{{ route('invoice.send_to_email', $invoice) }}"
                 class="btn btn-success  ml-auto"><i class="fa fa-envelope"></i>
-                {{ __('Frontend/frontend.send_to_email') }}</a>
+                {{ __('Frontend/frontend.send_to_email') }}</a> --}}
             </div>
           </div>
         </div>
